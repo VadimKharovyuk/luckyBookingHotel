@@ -14,7 +14,6 @@ public class HotelService {
     private final HotelRepository hotelRepository;
 
 
-
     public Hotel createHotel(Hotel hotel) {
         return hotelRepository.save(hotel);
     }
@@ -26,10 +25,6 @@ public class HotelService {
     public List<Hotel> findAllHotels() {
         return hotelRepository.findAll();
     }
-    public List<Hotel> searchHotelsByName(String name) {
-        return hotelRepository.findByNameContainingIgnoreCase(name);
-    }
-
 
 
     public List<Hotel> findHotelsByLocation(String location) {
