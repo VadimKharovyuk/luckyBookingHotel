@@ -36,6 +36,16 @@ public class HotelService {
         return hotelRepository.findByLocation(location); // Возвращаем список отелей, найденных по 'location'
     }
 
+    public List<Hotel> findHotelsByLocationAndName(String location, String name) {
+        // Ищет отели по локации и названию
+        return hotelRepository.findByLocationAndNameContainingIgnoreCase(location, name);
+    }
+
+    public List<Hotel> findHotelsByName(String name) {
+        // Ищет отели только по названию
+        return hotelRepository.findByNameContainingIgnoreCase(name);
+    }
+
 
     // Методы для поиска отелей по различным критериям (например, по локации)
 }

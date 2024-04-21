@@ -6,10 +6,18 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
-public interface HotelRepository extends JpaRepository<Hotel,Long> {
-    List<Hotel> findByNameContainingIgnoreCase(String name);
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import java.util.List;
 
-    List<Hotel> findByLocation(String location);
+@Repository
+public interface HotelRepository extends JpaRepository<Hotel, Long> {
+    List<Hotel> findByNameContainingIgnoreCase(String name); // Поиск по названию, без учета регистра
+
+    List<Hotel> findByLocation(String location); // Поиск по местоположению
+
+    List<Hotel> findByLocationAndNameContainingIgnoreCase(String location, String name);
 
 }
+
+

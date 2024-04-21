@@ -137,13 +137,22 @@
 <section class="centered">
     <h2>Find a Hotel</h2>
     <form method="get" action="/hotels/search">
+        <!-- Поле для ввода локации -->
         <div class="form-group">
             <label for="searchLocation">Location:</label>
-            <input type="text" id="searchLocation" name="location" placeholder="Enter location..." required> <!-- Поле для поиска по локации -->
+            <input type="text" id="searchLocation" name="location" placeholder="Enter location..." required>
         </div>
+
+        <!-- Поле для ввода названия отеля -->
+        <div class="form-group">
+            <label for="searchName">Hotel Name:</label>
+            <input type="text" id="searchName" name="name" placeholder="Enter hotel name...">
+        </div>
+
         <button type="submit">Search Hotels</button> <!-- Кнопка для поиска отелей -->
     </form>
 </section>
+
 
 
 

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -46,11 +47,30 @@ public class HotelController {
     }
 
     @GetMapping("/hotels/search")
-    public String searchHotels(@RequestParam(name = "location") String location, Model model) {
-        List<Hotel> hotels = hotelService.findHotelsByLocation(location);
+    public String searchHotels(
+            @RequestParam(name = "location", required = false) String location,
+            @RequestParam(name = "name", required = false) String name,
+            Model model
+    ) {
+        List<Hotel> hotels;
+
+        if (location != null && name != null) {
+            // Если заданы оба параметра, ищем по обоим
+            hotels = hotelService.findHotelsByLocationAndName(location, name);
+        } else if (location != null) {
+            // Если задан только location, ищем по нему
+            hotels = hotelService.findHotelsByLocation(location);
+        } else if (name != null) {
+            // Если задано только название, ищем по нему
+            hotels = hotelService.findHotelsByName(name);
+        } else {
+            hotels = new ArrayList<>(); // Если не заданы параметры, возвращаем пустой список
+        }
+
         model.addAttribute("hotels", hotels);
         return "hotel_search_results";
     }
+
 
 
 }
