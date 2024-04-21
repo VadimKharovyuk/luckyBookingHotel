@@ -6,30 +6,30 @@
 <body>
 <h1>Add a New Hotel</h1>
 <form method="post" action="/hotels">
-    <!-- Name of the hotel -->
+    <!-- Название отеля -->
     <div>
         <label for="hotelName">Hotel Name:</label>
         <input type="text" id="hotelName" name="name" required>
     </div>
 
-    <!-- Location (City) -->
+    <!-- Местоположение отеля -->
     <div>
-        <label for="hotelCity">City:</label>
-        <input type="text" id="hotelCity" name="city" required>
+        <label for="hotelLocation">Location:</label>
+        <input type="text" id="hotelLocation" name="location" required>
     </div>
 
-    <!-- Description of the hotel -->
+    <!-- Описание отеля -->
     <div>
         <label for="hotelDescription">Description:</label>
         <textarea id="hotelDescription" name="description" rows="4" required></textarea>
     </div>
 
-    <!-- Submit button -->
+    <!-- Кнопка отправки -->
     <div>
         <button type="submit">Add Hotel</button>
     </div>
 </form>
 <br>
-<a href="/hotels">Back to Hotels List</a> <!-- Link back to the hotels list -->
+<a href="/hotels">Back to Hotels List</a> <!-- Ссылка на список отелей -->
 </body>
 </html>
