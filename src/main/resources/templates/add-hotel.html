@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add Hotel</title>
+</head>
+<body>
+<h1>Add a New Hotel</h1>
+<form method="post" action="/hotels">
+    <!-- Name of the hotel -->
+    <div>
+        <label for="hotelName">Hotel Name:</label>
+        <input type="text" id="hotelName" name="name" required>
+    </div>
+
+    <!-- Location (City) -->
+    <div>
+        <label for="hotelCity">City:</label>
+        <input type="text" id="hotelCity" name="city" required>
+    </div>
+
+    <!-- Description of the hotel -->
+    <div>
+        <label for="hotelDescription">Description:</label>
+        <textarea id="hotelDescription" name="description" rows="4" required></textarea>
+    </div>
+
+    <!-- Submit button -->
+    <div>
+        <button type="submit">Add Hotel</button>
+    </div>
+</form>
+<br>
+<a href="/hotels">Back to Hotels List</a> <!-- Link back to the hotels list -->
+</body>
+</html>

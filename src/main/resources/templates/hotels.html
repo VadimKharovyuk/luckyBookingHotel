@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hotels</title>
+</head>
+<body>
+<h1>Hotels</h1>
+<ul>
+    <li th:each="hotel : ${hotels}">
+        <a th:href="@{'/hotels/' + ${hotel.id}}" th:text="${hotel.name}"></a>
+    </li>
+</ul>
+</body>
+</html>

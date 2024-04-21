@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Welcome to Lucky Hotel</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css"> <!-- Подключение файла стилей -->
+    <style>
+        /* Основной стиль */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f7ff; /* Светло-голубой фон для страницы */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Заголовок и навигация */
+        header {
+            text-align: center;
+            background-color: #003366; /* Темно-синий */
+            color: white;
+            padding: 20px 0;
+        }
+
+        nav {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .nav-links {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .nav-links li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #007acc; /* Синий */
+            font-weight: bold;
+        }
+
+        /* Форма поиска */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        input[type="text"], input[type="date"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #009688; /* Бирюзовый */
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #008080; /* Темно-бирюзовый */
+        }
+
+        /* Список отелей */
+        .hotel-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .hotel-list li {
+            margin-bottom: 10px;
+        }
+
+        .hotel-list a {
+            color: #004080; /* Темно-синий */
+        }
+
+        /* Подвал */
+        footer {
+            text-align: center;
+            background-color: #000000; /* Черный */
+            color: white;
+            padding: 10px 0;
+            position: fixed; /* Закрепляет подвал в определенном месте */
+            width: 100%; /* Гарантирует, что подвал будет занимать всю ширину */
+            bottom: 0; /* Подвал находится внизу страницы */
+        }
+        .centered {
+            display: flex; /* Используем flexbox для центрирования */
+            justify-content: center; /* Центрирование по горизонтали */
+            align-items: center; /* Центрирование по вертикали (если нужно) */
+            flex-direction: column; /* Элементы идут сверху вниз */
+            text-align: center; /* Центрирование текста */
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left; /* Выравнивание лейблов в формах по левому краю */
+        }
+        aside {
+            position: absolute; /* Абсолютное позиционирование */
+            top: 20px; /* Отступ сверху */
+            right: 20px; /* Отступ справа */
+            border-left: 1px solid #ccc; /* Разделительная линия слева */
+            padding: 20px; /* Внутренний отступ */
+            text-align: center; /* Центрирование текста */
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+<!-- Заголовок -->
+<header>
+    <h1>Welcome to Lucky Hotel!</h1>
+    <p>Your best choice for hotel bookings!</p>
+</header>
+
+<!-- Навигация -->
+<nav>
+    <ul class="nav-links">
+        <li><a href="/hotels">View All Hotels</a></li>
+        <li><a href="/bookings">My Bookings</a></li>
+        <li><a href="/reviews">Customer Reviews</a></li>
+        <li><a href="/admin">Admin Panel</a></li>
+    </ul>
+</nav>
+
+<!-- Форма поиска отелей -->
+<section class="centered">
+    <h2>Find a Hotel</h2>
+    <form method="get" action="/hotels/search">
+        <div class="form-group">
+            <label for="searchCity">City:</label>
+            <input type="text" id="searchCity" name="city" placeholder="Enter city..." required>
+        </div>
+        <div class="form-group">
+            <label for="checkInDate">Check-in Date:</label>
+            <input type="date" id="checkInDate" name="checkInDate" required>
+        </div>
+        <div class="form-group">
+            <label for="checkOutDate">Check-out Date:</label>
+            <input type="date" name="checkOutDate" required>
+        </div>
+        <button type="submit">Search Hotels</button>
+    </form>
+</section>
+
+
+<!-- Популярные отели -->
+<aside class="centered" style="position: absolute; top: 160px; right: 40px;">
+    <h2>Popular Hotels</h2>
+    <ul class="hotel-list">
+        <li><a href="/hotels/1">Hotel One</a></li>
+        <li><a href="/hotels/2">Hotel Two</a></li>
+        <li><a href="/hotels/3">Hotel Three</a></li>
+    </ul>
+</aside>
+
+
+<!-- Подвал -->
+<footer>
+    <p>&copy; 2024 Lucky Hotel. All rights reserved.</p>
+</footer>
+</body>
+</html>
