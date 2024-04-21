@@ -3,6 +3,85 @@
 <head>
     <title>Hotel Search Results</title>
     <link rel="stylesheet" type="text/css" href="/static/css/styles.css"> <!-- Подключение файла стилей -->
+    <style>
+        /* Overall body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9; /* Light gray background for the whole page */
+            color: #333; /* Dark gray text */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            text-align: center; /* Center the text */
+            padding: 20px; /* Padding around the header */
+        }
+
+        /* Navigation styling */
+        .nav-links {
+            list-style: none; /* Remove list bullet points */
+            padding: 0;
+            margin: 0;
+            display: flex; /* Display links in a row */
+            justify-content: center; /* Center the links */
+        }
+
+        .nav-links li {
+            margin: 0 10px; /* Space between navigation links */
+        }
+
+        .nav-links a {
+            text-decoration: none; /* Remove underlining on links */
+            color: white; /* White text for navigation links */
+            font-weight: bold; /* Bold text */
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline; /* Underline links on hover */
+        }
+
+        /* Section styling */
+        section {
+            padding: 20px; /* Padding inside the section */
+            max-width: 800px; /* Limit the width of the section */
+            margin: 20px auto; /* Center the section */
+        }
+
+        .hotel-list {
+            list-style: none; /* No bullet points */
+            padding: 0;
+        }
+
+        .hotel-list li {
+            padding: 10px; /* Padding inside each list item */
+            border-bottom: 1px solid #ddd; /* Light border between items */
+        }
+
+        .hotel-list a {
+            text-decoration: none; /* No underlining */
+            color: #4CAF50; /* Green text for hotel names */
+        }
+
+        .hotel-list a:hover {
+            color: #2E7D32; /* Darker green on hover */
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            background-color: #000000; /* Черный */
+            color: white;
+            padding: 10px 0;
+            position: fixed; /* Закрепляет подвал в определенном месте */
+            width: 100%; /* Гарантирует, что подвал будет занимать всю ширину */
+            bottom: 0; /* Подвал находится внизу страницы */
+        }
+
+    </style>
 </head>
 <body>
 

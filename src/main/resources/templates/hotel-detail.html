@@ -1,10 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Hotel Details</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css"> <!-- Подключение стилей -->
+    <style>
+        /* Основные стили */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* Светлый фон для всей страницы */
+        }
+
+        /* Заголовок страницы */
+        header {
+            text-align: center;
+            background-color: #333; /* Темный фон заголовка */
+            color: white; /* Белый текст */
+            padding: 20px;
+        }
+
+        /* Навигационное меню */
+        .nav-links {
+
+            list-style: none; /* Удаляем стандартные маркеры списка */
+            padding: 0;
+            display: flex;
+            justify-content: center; /* Выравниваем элементы по центру */
+        }
+
+        .nav-links li {
+            margin-right: 20px; /* Добавляем отступ между элементами */
+        }
+
+        .nav-links a {
+            text-decoration: none; /* Убираем подчеркивание */
+            color: #0c0101; /* Белый цвет текста */
+            font-weight: bold; /* Жирный текст */
+        }
+
+        .nav-links a:hover {
+            color: #a2073d; /* Цвет при наведении (золотистый) */
+        }
+
+        /* Секция с деталями отеля */
+        section {
+            padding: 20px; /* Добавляем отступы */
+            background-color: white; /* Белый фон */
+            margin: 20px; /* Добавляем отступы вокруг секции */
+            border-radius: 10px; /* Скругленные углы */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Добавляем легкую тень */
+        }
+
+        /* Стиль для заголовков */
+        h2 {
+            text-align: center; /* Выравниваем по центру */
+        }
+
+        /* Стиль для списка отелей */
+        .hotel-list {
+            list-style: none; /* Удаляем стандартные маркеры списка */
+            padding: 0;
+        }
+
+        .hotel-list li {
+            padding: 10px; /* Добавляем отступы */
+            border-bottom: 1px solid #ddd; /* Линия между элементами списка */
+        }
+
+        .hotel-list li a {
+            text-decoration: none; /* Убираем подчеркивание */
+            color: #333; /* Темно-серый цвет текста */
+        }
+
+        .hotel-list li a:hover {
+            color: #FFD700; /* Цвет при наведении (золотистый) */
+        }
+
+        /* Подвал */
+        footer {
+            text-align: center;
+            background-color: #000000; /* Черный */
+            color: white;
+            padding: 10px 0;
+            position: fixed; /* Закрепляет подвал в определенном месте */
+            width: 100%; /* Гарантирует, что подвал будет занимать всю ширину */
+            bottom: 0; /* Подвал находится внизу страницы */
+        }
+
+    </style>
 </head>
 <body>
+
+<!-- Заголовок -->
+<header>
+    <h1>Hotel Details</h1> <!-- Заголовок страницы -->
+</header>
+
+<!-- Навигация -->
+<nav>
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li> <!-- Ссылка на главную страницу -->
+        <li><a href="/hotels">View All Hotels</a></li> <!-- Ссылка для отображения всех отелей -->
+        <li><a href="/bookings">My Bookings</a></li> <!-- Ссылка на бронирования -->
+        <li><a href="/reviews">Customer Reviews</a></li> <!-- Ссылка на отзывы -->
+        <li><a href="/admin">Admin Panel</a></li> <!-- Ссылка на панель администратора -->
+    </ul>
+</nav>
+
+<!-- Детали отеля -->
+<section>
+    <h2 th:text="${hotel.name}"></h2> <!-- Название отеля -->
+
+    <!-- Информация об отеле -->
+    <p>
+        <strong>Location:</strong> <span th:text="${hotel.location}"></span> <!-- Местоположение -->
+    </p>
+    <p>
+        <strong>Description:</strong> <span th:text="${hotel.description}"></span> <!-- Описание -->
+    </p>
+
+    <!-- Добавление опциональных элементов, таких как изображения отеля, рейтинги и т. д. -->
+</section>
+
+<!-- Подвал -->
+<footer>
+    <p>&copy; 2024 Lucky Hotel. All rights reserved.</p> <!-- Сообщение о копирайтах -->
+</footer>
 
 </body>
 </html>
