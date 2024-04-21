@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -43,5 +44,13 @@ public class HotelController {
         hotelService.createHotel(hotel);
         return "redirect:/hotels";
     }
+
+    @GetMapping("/hotels/search")
+    public String searchHotels(@RequestParam(name = "location") String location, Model model) {
+        List<Hotel> hotels = hotelService.findHotelsByLocation(location);
+        model.addAttribute("hotels", hotels);
+        return "hotel_search_results";
+    }
+
 
 }

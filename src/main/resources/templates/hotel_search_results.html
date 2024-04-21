@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hotel Search Results</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css"> <!-- Подключение файла стилей -->
+</head>
+<body>
+
+<!-- Заголовок -->
+<header>
+    <h1>Hotel Search Results</h1> <!-- Заголовок страницы -->
+</header>
+
+<!-- Навигация -->
+<nav>
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li> <!-- Ссылка на главную страницу -->
+        <li><a href="/hotels">View All Hotels</a></li> <!-- Ссылка для отображения всех отелей -->
+        <li><a href="/bookings">My Bookings</a></li> <!-- Ссылка на бронирования пользователя -->
+        <li><a href="/reviews">Customer Reviews</a></li> <!-- Ссылка на отзывы -->
+        <li><a href="/admin">Admin Panel</a></li> <!-- Ссылка на админ-панель -->
+    </ul>
+</nav>
+
+<!-- Результаты поиска отелей -->
+<section>
+    <h2>Found Hotels in <span th:text="${location}"></span></h2> <!-- Заголовок с динамическим отображением названия города -->
+
+    <!-- Список найденных отелей -->
+    <ul class="hotel-list">
+        <!-- Итерация по списку найденных отелей -->
+        <li th:each="hotel : ${hotels}">
+            <a th:href="@{'/hotels/' + ${hotel.id}}"> <!-- Ссылка на страницу конкретного отеля -->
+                <span th:text="${hotel.name}"></span> <!-- Название отеля -->
+            </a>
+        </li>
+    </ul>
+
+    <!-- Если нет результатов -->
+    <p th:if="${#lists.isEmpty(hotels)}">No hotels found for the given location.</p> <!-- Сообщение при отсутствии результатов -->
+</section>
+
+<!-- Подвал -->
+<footer>
+    <p>&copy; 2024 Lucky Hotel. All rights reserved.</p> <!-- Стандартное сообщение в подвале -->
+</footer>
+
+</body>
+</html>
