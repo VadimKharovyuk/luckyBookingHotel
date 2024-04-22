@@ -25,6 +25,15 @@ public class ReviewService {
     public List<Review> findAllReviews() {
         return reviewRepository.findAll();
     }
+    // Получение всех отзывов по отелю
+    public List<Review> getReviewsByHotel(Long hotelId) {
+        return reviewRepository.findByHotelId(hotelId);
+    }
+
+    public void saveReview(Review review) {
+       reviewRepository.save(review);
+
+    }
 
     // Методы для управления отзывами (например, удаление отзыва)
 }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Photos for Hotel</title>
+</head>
+<body>
+<h1>Photos for Hotel</h1>
+
+<!-- Список фотографий -->
+<ul>
+    <li th:each="photo : ${photos}">
+        <img th:src="${photo.url}" alt="Photo for Hotel" /> <!-- Изображение фотографии -->
+    </li>
+</ul>
+
+<!-- Кнопка для добавления новой фотографии -->
+<a href="/photos/add">Add Photo</a>
+
+<!-- Кнопка для удаления фотографии -->
+<a th:href="@{'/photos/delete/' + ${photo.id}}">Delete Photo</a>
+</body>
+</html>

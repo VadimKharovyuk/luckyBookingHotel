@@ -31,5 +31,9 @@ public class User {
     private Set<Review> reviews; // Отзывы пользователя
 
     private String role; // Роль (например, 'USER' или 'ADMIN')
+
+    public User(Long userId) {
+        this.id=userId;
+    }
 }
 

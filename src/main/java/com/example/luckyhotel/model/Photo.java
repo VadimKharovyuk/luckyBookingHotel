@@ -13,12 +13,14 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Photo {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Автоматическая генерация идентификатора
     private Long id;
 
     private String url; // URL фотографии
 
+    private String description; // Описание фотографии
+
     @ManyToOne
-    @JoinColumn(name = "hotel_id")
+    @JoinColumn(name = "hotel_id") // Связь с таблицей Hotel
     private Hotel hotel;
 }

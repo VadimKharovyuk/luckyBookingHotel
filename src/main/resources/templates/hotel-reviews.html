@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Отзывы об отеле</title>
+    <link rel="stylesheet" href="/static/styles.css"> <!-- Подключите стили, если есть -->
+</head>
+<body>
+<header>
+    <h1>Отзывы об отеле</h1>
+</header>
+
+<!-- Ссылка для перехода к форме добавления нового отзыва -->
+<div>
+    <a href="/reviews/add">Добавить отзыв</a>
+</div>
+
+<!-- Отображение списка отзывов -->
+<div>
+    <!-- Если отзывы есть, отобразить их -->
+    <h2>Список отзывов:</h2>
+    <ul>
+        <!-- Перебор всех отзывов, переданных в модель -->
+        <li th:each="review : ${reviews}">
+            <!-- Отображение рейтинга, комментария и даты отзыва -->
+            <span th:text="${review.rating}">Рейтинг: 5</span>
+            <span th:text="${review.comment}">Комментарий: Отличный отель!</span>
+            <span th:text="${#dates.format(review.date, 'dd/MM/yyyy')}">Дата: 01/01/2023</span>
+        </li>
+    </ul>
+</div>
+
+<!-- Если отзывов нет, вывести сообщение -->
+<div th:if="${#lists.isEmpty(reviews)}">
+    <p>Отзывов пока нет.</p>
+</div>
+
+<footer>
+    <!-- Кнопка для перехода к странице отеля или другим действиям -->
+    <a href="/hotels">Вернуться к списку отелей</a>
+</footer>
+</body>
+</html>

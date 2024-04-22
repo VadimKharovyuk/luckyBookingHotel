@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Загрузить Фото</title>
+</head>
+<body>
+<h2>Загрузить Фото</h2>
+<!-- Форма загрузки фото -->
+<form action="/photos/add" method="post" enctype="multipart/form-data">
+    <!-- Поле для выбора файла -->
+    <label for="file">Выберите файл:</label>
+    <input type="file" id="file" name="file" required>
+    <br>
+
+    <!-- Поле для выбора отеля (можно заменить списком с именами отелей) -->
+    <label for="hotelId">ID отеля:</label>
+    <input type="number" id="hotelId" name="hotelId" required>
+    <br>
+
+    <!-- Поле для описания фотографии -->
+    <label for="description">Описание:</label>
+    <input type="text" id="description" name="description" required>
+    <br>
+
+    <!-- Кнопка для отправки формы -->
+    <button type="submit">Загрузить Фото</button>
+</form>
+
+<!-- Обработка ошибок (если есть) -->
+<div>
+    <!-- Проверка параметра 'error' в URL, чтобы вывести сообщение об ошибке -->
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get("error");
+        if (error) {
+            document.write("<p style='color: red;'>Ошибка: " + error + "</p>");
+        }
+    </script>
+</div>
+</body>
+</html>

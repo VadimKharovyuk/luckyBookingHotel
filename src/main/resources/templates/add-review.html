@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:c="http://www.w3.org/1999/XSL/Transform">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить отзыв</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<header>
+    <h1>Добавление отзыва</h1>
+</header>
+
+<div>
+    <!-- Форма для добавления нового отзыва -->
+    <form action="/reviews/add" method="post">
+        <!-- Ввод комментария -->
+        <div>
+            <label for="comment">Комментарий:</label>
+            <textarea id="comment" name="comment" rows="4" placeholder="Напишите свой отзыв здесь..."></textarea>
+        </div>
+
+        <!-- Ввод рейтинга -->
+        <div>
+            <label for="rating">Рейтинг (1-5):</label>
+            <input id="rating" type="number" name="rating" min="1" max="5" required />
+        </div>
+
+        <!-- Выпадающий список для выбора отеля -->
+        <div>
+            <label for="hotelId">Отель:</label>
+            <select id="hotelId" name="hotelId" required>
+                <!-- Проверяем наличие отелей и отображаем список -->
+                <c:choose>
+                    <c:when test="${not empty hotels}">
+                        <c:forEach var="hotel" items="${hotels}">
+                            <option value="${hotel.id}">${hotel.name}</option>
+                        </c:forEach>
+                    </c:when>
+                    <c:otherwise>
+                        <option value="">Нет доступных отелей</option>
+                    </c:otherwise>
+                </c:choose>
+            </select>
+        </div>
+
+        <!-- Скрытое поле для ID пользователя -->
+        <input type="hidden" name="userId" value="${userId}" />
+
+        <!-- Кнопка для отправки формы -->
+        <div>
+            <button type="submit">Добавить отзыв</button>
+        </div>
+    </form>
+</div>
+
+<footer>
+    <!-- Ссылка для возвращения к списку отзывов -->
+    <a href="/reviews/hotel/${hotelId}">Вернуться к отзывам об отеле</a>
+</footer>
+</body>
+</html>
